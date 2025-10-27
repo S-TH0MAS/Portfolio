@@ -1,0 +1,60 @@
+{% import "components/card.html.twig" as card %}
+
+{#
+On suppose que votre variable 'projects' est un tableau contenant
+vos trois listes de projets : [project_entreprise, project_formation, project_personnel]
+#}
+
+<div id="app" class="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 flex items-center justify-center py-8">
+
+    <div class="container max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
+
+        <header class="text-center mb-16">
+            <h1 class="text-5xl md:text-6xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-4">Mes Projets</h1>
+            <p class="text-xl text-slate-600 max-w-2xl mx-auto">Découvrez une sélection de mes travaux, organisés par catégorie.</p>
+        </header>
+
+        <main class="space-y-16">
+
+            {# --- SECTION PROJETS D'ENTREPRISE --- #}
+            <div>
+                <h2 class="text-3xl font-bold text-slate-800 mb-8 text-center md:text-start">Projets d'Entreprise</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 lg:gap-10">
+                    {# On boucle sur la première catégorie de projets (index 0) #}
+                    {% for project in projects[0] %}
+                        {{ card.project_card(project.title, project.description|raw, project.github_url) }}
+                    {% endfor %}
+                </div>
+            </div>
+
+            {# --- SECTION PROJETS DE FORMATION --- #}
+            <div>
+                <h2 class="text-3xl font-bold text-slate-800 mb-8 text-center md:text-start">Projets de Formation</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 lg:gap-10">
+                    {# On boucle sur la deuxième catégorie de projets (index 1) #}
+                    {% for project in projects[1] %}
+                        {{ card.project_card(project.title, project.description|raw, project.github_url) }}
+                    {% endfor %}
+                </div>
+            </div>
+
+            {# --- SECTION PROJETS PERSONNELS --- #}
+            <div>
+                <h2 class="text-3xl font-bold text-slate-800 mb-8 text-center md:text-start">Projets Personnels</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 lg:gap-10">
+                    {# On boucle sur la troisième catégorie de projets (index 2) #}
+                    {% for project in projects[2] %}
+                        {{ card.project_card(project.title, project.description|raw, project.github_url) }}
+                    {% endfor %}
+                </div>
+            </div>
+
+        </main>
+
+        <footer class="text-center mt-20 text-slate-500">
+            <p>&copy; {{ "now"|date("Y") }} S.Thomas. Tous droits réservés.</p>
+        </footer>
+
+    </div>
+
+</div>
