@@ -1,10 +1,10 @@
 # Nom du workflow
 name: Deploy Vite App to GitHub Pages
 
-# Déclencheur : se lance à chaque push sur la branche "main"
+# Déclencheur : se lance à chaque push sur la branche "master"
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "master" ]
 
 # Permissions requises pour le déploiement sur GitHub Pages
 permissions:
