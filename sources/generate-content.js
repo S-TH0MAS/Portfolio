@@ -3,7 +3,7 @@ import Twig from "twig";
 import fs from 'fs';
 import path from 'path';
 import { promisify } from 'util';
-import {projectInfo} from "./project-info.js";
+import {name, projectInfo} from "./project-info.js";
 
 const __dirname = import.meta.dirname;
 
@@ -38,7 +38,7 @@ async function main() {
     await generateHTML(
         path.join(templatesDir, 'body.html.twig'),
         path.join(outputDir, 'content.html'),
-        {projects: projectInfo}
+        {projects: projectInfo, name}
     );
     console.log('Génération terminée.');
 }
