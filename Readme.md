@@ -133,7 +133,8 @@ Cette commande :
 
 * lit `sources/project-info.js`
 * chiffre son contenu
-* génère les données dans `src/content/`
+* génère les données en clair dans `src/content/`
+* génère les données chiffré dans `src/encrypted/`
 
 ### 5. Test en Local
 
